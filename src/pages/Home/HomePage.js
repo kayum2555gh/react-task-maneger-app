@@ -45,7 +45,7 @@ const HomePage = () => {
         setLoading(false)
         console.log(error)
       }
-    },[]);
+    });
 
   useEffect(()=>{
     getUserTask();

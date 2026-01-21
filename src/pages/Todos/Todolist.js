@@ -33,7 +33,7 @@ const Todolist = () => {
         setFilterdTask(completed)
       }
       getUserTask();
-    },[allTask,getUserTask]);
+    },[todoStatus,allTask,getUserTask]);
     
 
   return (
