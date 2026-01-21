@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../../components/Navbar'
 import TodoServices from '../../Services/TodoServices'
 import Spinner from '../../components/Spinner'
@@ -11,7 +11,7 @@ const Todolist = () => {
 
     const userData = JSON.parse(localStorage.getItem("mern3Todo"))
       const id = userData && userData.user.id
-      const getUserTask = useCallback(  async() =>{
+      const getUserTask = async() =>{
         setLoading(true)
         try {
           const {data} = await TodoServices.getAllTodo(id);
@@ -22,8 +22,8 @@ const Todolist = () => {
           setLoading(false)
           console.log(error)
         }
-      },[id])
- 
+      };
+  
     useEffect(()=>{
       const incomplete = allTask?.filter(item => item.isCompleted === false)
       const completed = allTask?.filter(item => item.isCompleted === true)
@@ -33,8 +33,7 @@ const Todolist = () => {
         setFilterdTask(completed)
       }
       getUserTask();
-    },[todoStatus,allTask,getUserTask]);
-    
+    },[todoStatus]);
 
   return (
     <>
