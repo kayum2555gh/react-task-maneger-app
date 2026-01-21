@@ -1,4 +1,4 @@
-import React ,{useEffect, useState} from 'react'
+import React ,{useCallback, useEffect, useState} from 'react'
 import Navbar from '../../components/Navbar'
 import PopModal from '../../components/PopModal'
 import TodoServices from '../../Services/TodoServices';
@@ -34,7 +34,7 @@ const HomePage = () => {
 
    const userData = JSON.parse(localStorage.getItem("mern3Todo"))
     const id = userData && userData.user.id
-    const getUserTask = async() =>{
+    const getUserTask =useCallback( async() =>{
       setLoading(true)
       try {
         const {data} = await TodoServices.getAllTodo(id);
@@ -45,7 +45,7 @@ const HomePage = () => {
         setLoading(false)
         console.log(error)
       }
-    };
+    },[]);
 
   useEffect(()=>{
     getUserTask();

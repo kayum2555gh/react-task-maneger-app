@@ -22,7 +22,7 @@ const Todolist = () => {
           setLoading(false)
           console.log(error)
         }
-      },[])
+      },[id])
  
     useEffect(()=>{
       const incomplete = allTask?.filter(item => item.isCompleted === false)
@@ -33,7 +33,7 @@ const Todolist = () => {
         setFilterdTask(completed)
       }
       getUserTask();
-    },[todoStatus]);
+    },[allTask,getUserTask]);
     
 
   return (
