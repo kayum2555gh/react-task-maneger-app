@@ -20,7 +20,7 @@ const PopModal = ({ title, setTitle, showModal, setShowModal, description, setDe
             if(!title || !description){
                 return toast.error("Please provide title or description")
             }
-            const todo = await TodoServices.createTodo(data)
+             await TodoServices.createTodo(data)
             setShowModal(false)
             getUserTask();
             toast.success("Task Createsd Succesfully")
