@@ -49,7 +49,7 @@ const HomePage = () => {
 
   useEffect(()=>{
     getUserTask();
-  },[]);
+  });
 
 
   return (
